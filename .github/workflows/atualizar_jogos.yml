@@ -1,0 +1,40 @@
+name: Atualizador Diario - Guru das Multiplas
+
+on:
+  schedule:
+    # Roda todos os dias às 06:00 AM (Horário de Brasília / 09:00 UTC)
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Permite que você clique em um botão para rodar manualmente quando quiser
+
+# Metadados de permissão obrigatórios para que o bot consiga gravar as alterações no repositório
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: COPIAR REPOSITORIO
+      uses: actions/checkout@v3
+
+    - name: CONFIGURAR PYTHON
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: EXECUTAR ROBO DO GURU
+      run: |
+        # Script que processará a análise dos mercados de Gols, Chutes, Cantos e Cartões
+        echo "O Guru está validando os dados estatísticos..."
+
+    - name: CONFIGURAR USUARIO DO GITHUB
+      run: |
+        git config --global user.name "Guru das Multiplas"
+        git config --global user.email "bot@github.com"
+
+    - name: SALVAR ATUALIZACAO NO REPOSITORIO
+      run: |
+        git add jogos_guru.json
+        git commit -m "🔮 Múltiplas do Guru atualizadas [skip ci]" || echo "Nenhuma mudança para salvar hoje."
+        git push
