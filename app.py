@@ -1,124 +1,5 @@
 import streamlit as st
 import json
-import os
-
-# Configuração da página (deve ser o primeiro comando Streamlit)
-st.set_page_config(
-    page_title="Guru das Múltiplas",
-    page_icon="🔮",
-    layout="centered"
-)
-
-# Estilização Customizada (Visual Roxo Neon, Azul e Dourado)
-st.markdown("""
-    <style>
-    /* Fundo geral e textos */
-    .stApp {
-        background-color: #0d0b18;
-        color: #f1f0f7;
-    }
-    
-    /* Título Principal */
-    .titulo-principal {
-        text-align: center;
-        color: #9d4edd;
-        font-size: 32px;
-        font-weight: bold;
-        margin-bottom: 5px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        text-shadow: 0px 0px 12px rgba(157, 78, 221, 0.6);
-    }
-    
-    .subtitulo-principal {
-        text-align: center;
-        color: #4cc9f0;
-        font-size: 16px;
-        margin-bottom: 25px;
-    }
-
-    /* Avisos e Atualização */
-    .tempo-atualizacao {
-        text-align: center;
-        font-size: 13px;
-        color: #a0a0b0;
-        background-color: #1a162b;
-        padding: 8px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        border: 1px solid #3c1e6d;
-    }
-
-    /* Box do Bilhete */
-    .card-bilhete {
-        background: linear-gradient(135deg, #16122c 0%, #1e1938 100%);
-        border: 2px solid #4cc9f0;
-        border-radius: 15px;
-        padding: 20px;
-        margin-bottom: 25px;
-        box-shadow: 0 4px 15px rgba(76, 201, 240, 0.2);
-    }
-    
-    /* Box do Bilhete VIP */
-    .card-bilhete-vip {
-        background: linear-gradient(135deg, #1f142e 0%, #291a3d 100%);
-        border: 2px solid #ffb703;
-        border-radius: 15px;
-        padding: 20px;
-        margin-bottom: 25px;
-        box-shadow: 0 4px 15px rgba(255, 183, 3, 0.2);
-    }
-
-    .header-bilhete {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #3c1e6d;
-        padding-bottom: 10px;
-        margin-bottom: 15px;
-    }
-
-    .nome-bilhete {
-        font-size: 18px;
-        font-weight: bold;
-        color: #9d4edd;
-    }
-    
-    .nome-bilhete-vip {
-        font-size: 18px;
-        font-weight: bold;
-        color: #ffb703;
-    }
-
-    .metrica-bilhete {
-        background-color: #240046;
-        color: #ffb703;
-        padding: 4px 10px;
-        border-radius: 6px;
-        font-weight: bold;
-        font-size: 14px;
-    }
-
-    /* Linhas de Jogos */
-    .linha-jogo {
-        background-color: rgbaSensacional! Agora o seu novo repositório **GURU-DAS-MULTIPLAS** já tem a sua base de dados pronta. 
-
-Vamos criar agora o arquivo visual da interface. Como combinamos, trouxemos uma pegada bem tecnológica e premium: fundo escuro com tons de **Roxo Neon, Azul e Dourado**, combinando perfeitamente com a proposta de inteligência e precisão do "Guru". 
-
-O design foi todo adaptado para exibir os bilhetes em formato de **Múltiplas (Combinadas)**, mostrando claramente as duplas e triplas com as linhas de cada mercado (Gols, Cantos, Chutes e Cartões), as Odds totais e a probabilidade de acerto calculada!
-
----
-
-### 💻 Passo 1: Criar o arquivo do Aplicativo (`app.py`)
-
-No seu novo repositório no GitHub:
-1. Clique no botão **Add file** > **Create new file**.
-2. No nome do arquivo, digite exatamente: **`app.py`**
-3. Na caixa de texto principal, cole todo o código abaixo:
-
-```python
-import streamlit as st
-import json
 import requests
 
 # Configuração da página e visualização mobile
@@ -128,40 +9,42 @@ st.set_page_config(
     layout="wide"
 )
 
-# Estilização CSS personalizada para tema Guru Premium (Roxo, Azul Neon e Dourado)
-st.markdown("""
-    <style>
-    .main { background-color: #0d0e15; color: #f1f1f7; }
-    .stTabs [data-baseweb="tab-list"] { gap: 10px; background-color: #141622; padding: 10px; border-radius: 12px; }
-    .stTabs [data-baseweb="tab"] { color: #8e94a6 !important; font-weight: bold; background-color: transparent; border: none; padding: 10px 20px; border-radius: 8px; transition: 0.3s; }
-    .stTabs [aria-selected="true"] { color: #a855f7 !important; background-color: #241938 !important; border-bottom: 2px solid #a855f7 !important; }
-    
-    .header-box { background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%); padding: 30px; border-radius: 16px; border: 1px solid #a855f7; text-align: center; margin-bottom: 25px; box-shadow: 0 8px 32px 0 rgba(168, 85, 247, 0.2); }
-    .header-box h1 { color: #ffffff; font-size: 32px; font-weight: 800; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-    .header-box p { color: #c084fc; font-size: 16px; margin: 0; font-weight: 500; }
-    
-    .update-tag { background-color: #1e1b4b; border: 1px solid #3b82f6; color: #60a5fa; padding: 6px 14px; border-radius: 30px; font-size: 13px; font-weight: bold; display: inline-block; margin-top: 15px; }
-    
-    .bilhete-card { background-color: #141622; border-radius: 14px; border-left: 5px solid #a855f7; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-    .bilhete-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #24273a; padding-bottom: 12px; margin-bottom: 15px; }
-    .bilhete-titulo { font-size: 18px; font-weight: bold; color: #ffffff; margin: 0; }
-    
-    .badge-odd { background: linear-gradient(135deg, #ca8a04 0%, #eab308 100%); color: #000000; font-weight: 900; padding: 5px 12px; border-radius: 8px; font-size: 15px; }
-    .badge-prob { background-color: #1e1b4b; color: #a855f7; border: 1px solid #a855f7; font-weight: bold; padding: 5px 12px; border-radius: 8px; font-size: 14px; margin-right: 8px; }
-    
-    .jogo-item { background-color: #1b1e2e; padding: 12px 16px; border-radius: 10px; margin-bottom: 8px; border: 1px solid #24273a; display: flex; justify-content: space-between; align-items: center; }
-    .jogo-info { display: flex; flex-direction: column; }
-    .jogo-times { font-size: 15px; font-weight: bold; color: #ffffff; }
-    .jogo-detalhes { font-size: 12px; color: #8e94a6; margin-top: 2px; }
-    .jogo-mercado { background-color: #241938; color: #c084fc; border: 1px solid #581c87; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: bold; text-align: right; }
-    .jogo-odd { font-weight: bold; color: #eab308; font-size: 14px; margin-left: 8px; }
+# Estilização CSS limpa para o tema Guru Premium (Roxo, Azul Neon e Dourado)
+style_css = """
+<style>
+.main { background-color: #0d0e15; color: #f1f1f7; }
+.stTabs [data-baseweb="tab-list"] { gap: 10px; background-color: #141622; padding: 10px; border-radius: 12px; }
+.stTabs [data-baseweb="tab"] { color: #8e94a6 !important; font-weight: bold; background-color: transparent; border: none; padding: 10px 20px; border-radius: 8px; transition: 0.3s; }
+.stTabs [aria-selected="true"] { color: #a855f7 !important; background-color: #241938 !important; border-bottom: 2px solid #a855f7 !important; }
 
-    .app-install-box { background-color: #141622; border: 1px dashed #3b82f6; padding: 15px; border-radius: 12px; text-align: center; margin-top: 30px; }
-    </style>
-""", unsafe_allow_html=True)
+.header-box { background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%); padding: 30px; border-radius: 16px; border: 1px solid #a855f7; text-align: center; margin-bottom: 25px; box-shadow: 0 8px 32px 0 rgba(168, 85, 247, 0.2); }
+.header-box h1 { color: #ffffff; font-size: 32px; font-weight: 800; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+.header-box p { color: #c084fc; font-size: 16px; margin: 0; font-weight: 500; }
 
-# URL do JSON bruto no seu novo repositório
-JSON_URL = "[https://raw.githubusercontent.com/rochapereira1970-svg/GURU-DAS-MULTIPLAS/main/jogos_guru.json](https://raw.githubusercontent.com/rochapereira1970-svg/GURU-DAS-MULTIPLAS/main/jogos_guru.json)"
+.update-tag { background-color: #1e1b4b; border: 1px solid #3b82f6; color: #60a5fa; padding: 6px 14px; border-radius: 30px; font-size: 13px; font-weight: bold; display: inline-block; margin-top: 15px; }
+
+.bilhete-card { background-color: #141622; border-radius: 14px; border-left: 5px solid #a855f7; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.bilhete-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #24273a; padding-bottom: 12px; margin-bottom: 15px; }
+.bilhete-titulo { font-size: 18px; font-weight: bold; color: #ffffff; margin: 0; }
+
+.badge-odd { background: linear-gradient(135deg, #ca8a04 0%, #eab308 100%); color: #000000; font-weight: 900; padding: 5px 12px; border-radius: 8px; font-size: 15px; }
+.badge-prob { background-color: #1e1b4b; color: #a855f7; border: 1px solid #a855f7; font-weight: bold; padding: 5px 12px; border-radius: 8px; font-size: 14px; margin-right: 8px; }
+
+.jogo-item { background-color: #1b1e2e; padding: 12px 16px; border-radius: 10px; margin-bottom: 8px; border: 1px solid #24273a; display: flex; justify-content: space-between; align-items: center; }
+.jogo-info { display: flex; flex-direction: column; }
+.jogo-times { font-size: 15px; font-weight: bold; color: #ffffff; }
+.jogo-detalhes { font-size: 12px; color: #8e94a6; margin-top: 2px; }
+.jogo-mercado { background-color: #241938; color: #c084fc; border: 1px solid #581c87; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: bold; text-align: right; }
+.jogo-odd { font-weight: bold; color: #eab308; font-size: 14px; margin-left: 8px; }
+
+.app-install-box { background-color: #141622; border: 1px dashed #3b82f6; padding: 15px; border-radius: 12px; text-align: center; margin-top: 30px; }
+</style>
+"""
+
+st.markdown(style_css, unsafe_allow_html=True)
+
+# URL do JSON bruto no seu repositório
+JSON_URL = "https://raw.githubusercontent.com/rochapereira1970-svg/GURU-DAS-MULTIPLAS/main/jogos_guru.json"
 
 def carregar_dados():
     try:
@@ -175,11 +58,12 @@ def carregar_dados():
 dados = carregar_dados()
 
 # Banner Principal do Aplicativo
+data_atualizacao = dados['ultima_atualizacao'] if dados else "Aguardando atualização..."
 st.markdown(f"""
     <div class="header-box">
         <h1>🔮 GURU DAS MÚLTIPLAS</h1>
         <p>Bilhetes Estratégicos Baseados em Análise de Dados de Alta Probabilidade</p>
-        <div class="update-tag">🔄 Atualizado em: {dados['ultima_atualizacao'] if dados else "Aguardando atualização..."}</div>
+        <div class="update-tag">🔄 Atualizado em: {data_atualizacao}</div>
     </div>
 """, unsafe_allow_html=True)
 
