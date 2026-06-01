@@ -1,0 +1,104 @@
+{
+  "ultima_atualizacao": "01/06/2026 - 06:00",
+  "bilhetes_free": [
+    {
+      "tipo": "🔮 A Dupla do Guru (Grátis)",
+      "odds_total": "1.85",
+      "probabilidade": "81%",
+      "jogos": [
+        {
+          "time_casa": "Real Madrid",
+          "time_fora": "Barcelona",
+          "campeonato": "La Liga",
+          "mercado": "🔥 Over 1.5 Gols",
+          "odd_jogo": "1.35"
+        },
+        {
+          "time_casa": "Manchester City",
+          "time_fora": "Liverpool",
+          "campeonato": "Premier League",
+          "mercado": "📐 Mais de 8.5 Escanteios",
+          "odd_jogo": "1.37"
+        }
+      ]
+    },
+    {
+      "tipo": "🔮 A Tripla do Guru (Grátis)",
+      "odds_total": "1.98",
+      "probabilidade": "79%",
+      "jogos": [
+        {
+          "time_casa": "Bayern Munique",
+          "time_fora": "Dortmund",
+          "campeonato": "Bundesliga",
+          "mercado": "🔥 Over 1.5 Gols",
+          "odd_jogo": "1.25"
+        },
+        {
+          "time_casa": "Inter de Milão",
+          "time_fora": "Juventus",
+          "campeonato": "Série A",
+          "mercado": "🎯 Mais de 23.5 Chutes Totais",
+          "odd_jogo": "1.28"
+        },
+        {
+          "time_casa": "PSG",
+          "time_fora": "Marseille",
+          "campeonato": "Ligue 1",
+          "mercado": "🟨 Mais de 3.5 Cartões",
+          "odd_jogo": "1.24"
+        }
+      ]
+    }
+  ],
+  "bilhetes_vip": [
+    {
+      "tipo": "👑 1ª Dupla VIP (Guru)",
+      "odds_total": "1.82",
+      "probabilidade": "83%",
+      "jogos": [
+        { "time_casa": "Arsenal", "time_fora": "Chelsea", "campeonato": "Premier League", "mercado": "🔥 Over 1.5 Gols", "odd_jogo": "1.32" },
+        { "time_casa": "Benfica", "time_fora": "Porto", "campeonato": "Liga Portugal", "mercado": "📐 Mais de 8.5 Escanteios", "odd_jogo": "1.38" }
+      ]
+    },
+    {
+      "tipo": "👑 2ª Dupla VIP (Guru)",
+      "odds_total": "1.76",
+      "probabilidade": "82%",
+      "jogos": [
+        { "time_casa": "Atlético Madrid", "time_fora": "Sevilla", "campeonato": "La Liga", "mercado": "🟨 Mais de 4.5 Cartões", "odd_jogo": "1.35" },
+        { "time_casa": "Ajax", "time_fora": "Feyenoord", "campeonato": "Eredivisie", "mercado": "🔥 Over 1.5 Gols", "odd_jogo": "1.30" }
+      ]
+    },
+    {
+      "tipo": "👑 1ª Tripla VIP (Guru)",
+      "odds_total": "1.95",
+      "probabilidade": "79%",
+      "jogos": [
+        { "time_casa": "Napoli", "time_fora": "Milan", "campeonato": "Série A", "mercado": "🔥 Over 1.5 Gols", "odd_jogo": "1.28" },
+        { "time_casa": "Sporting", "time_fora": "Braga", "campeonato": "Liga Portugal", "mercado": "🚀 Mais de 8.5 Chutes no Gol", "odd_jogo": "1.25" },
+        { "time_casa": "Celtic", "time_fora": "Rangers", "campeonato": "Premiership", "mercado": "📐 Mais de 9.5 Escanteios", "odd_jogo": "1.22" }
+      ]
+    },
+    {
+      "tipo": "👑 2ª Tripla VIP (Guru)",
+      "odds_total": "1.89",
+      "probabilidade": "80%",
+      "jogos": [
+        { "time_casa": "Boca Juniors", "time_fora": "River Plate", "campeonato": "Liga Argentina", "mercado": "🟨 Mais de 5.5 Cartões", "odd_jogo": "1.30" },
+        { "time_casa": "Flamengo", "time_fora": "Fluminense", "campeonato": "Brasileirão", "mercado": "🔥 Over 1.5 Gols", "odd_jogo": "1.25" },
+        { "time_casa": "Palmeiras", "time_fora": "São Paulo", "campeonato": "Brasileirão", "mercado": "📐 Mais de 8.5 Escanteios", "odd_jogo": "1.16" }
+      ]
+    },
+    {
+      "tipo": "👑 3ª Tripla VIP (Guru)",
+      "odds_total": "2.02",
+      "probabilidade": "78%",
+      "jogos": [
+        { "time_casa": "Dortmund", "time_fora": "Leipzig", "campeonato": "Bundesliga", "mercado": "🎯 Mais de 25.5 Chutes Totais", "odd_jogo": "1.33" },
+        { "time_casa": "Aston Villa", "time_fora": "Tottenham", "campeonato": "Premier League", "mercado": "🔥 Over 1.5 Gols", "odd_jogo": "1.25" },
+        { "time_casa": "Roma", "time_fora": "Lazio", "campeonato": "Série A", "mercado": "🟨 Mais de 4.5 Cartões", "odd_jogo": "1.22" }
+      ]
+    }
+  ]
+}
